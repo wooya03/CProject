@@ -11,14 +11,14 @@ void DBscore(char(*p)[15]) {
 	char id[15] = { 0 };
 	char buffer[200] = { 0, };
 	char buffer2[200] = { 0, };
-	// mysql ÃÊ±âÈ­ : mysql_init(±¸Á¶Ã¼ÀÇ ÁÖ¼Ò => &mysql)
+	// mysql ì´ˆê¸°í™” : mysql_init(êµ¬ì¡°ì²´ì˜ ì£¼ì†Œ => &mysql)
 	mysql_init(&mysql);
 
-	// mysql ¿¬°á : mysql_real_connect(8°³ ±¸Á¶Ã¼ÀÇ ÁÖ¼Ò, È£½ºÆ® ÀÌ¸§,)
+	// mysql ì—°ê²° : mysql_real_connect(8ê°œ êµ¬ì¡°ì²´ì˜ ì£¼ì†Œ, í˜¸ìŠ¤íŠ¸ ì´ë¦„,)
 	connection = mysql_real_connect(&mysql, HOST, USER, PASS, NAME, PORT, NULL, 0);
 
 	if (connection == NULL) {
-		fprintf(stderr, "¿¡·¯ : %s\n", mysql_error(&mysql));
+		fprintf(stderr, "ì—ëŸ¬ : %s\n", mysql_error(&mysql));
 	}
 
 	sprintf(buffer, "delete from ranking where id='%s'", &p[0]);
