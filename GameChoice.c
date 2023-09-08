@@ -7,7 +7,7 @@ int GameChoice(void) {
 	gotoxy(a, b);
 	printf("========================\n");
 	gotoxy(a, b + 1);
-	printf("   ¡ã  ¡ã  ¡ã  ¡ã  ¡ã\n");
+	printf("   â–²  â–²  â–²  â–²  â–²\n");
 	gotoxy(a, b + 2);
 	printf("========================\n");
 	gotoxy(a, b + 3);
@@ -15,16 +15,16 @@ int GameChoice(void) {
 	gotoxy(a, b + 4);
 	printf("========================\n");
 	gotoxy(a, b + 5);
-	printf("     ¹« ÇÑ ÀÇ °è ´Ü\n");
+	printf("     ë¬´ í•œ ì˜ ê³„ ë‹¨\n");
 	gotoxy(a, b + 6);
 	printf("========================\n");
 
 	int x = 15;
 	int y = 15;
 	gotoxy(x - 2, y);
-	printf("> ÀÏ¹İ °ÔÀÓ");
+	printf("> ì¼ë°˜ ê²Œì„");
 	gotoxy(x, y + 1);
-	printf("¸ğµå °ÔÀÓ");
+	printf("ëª¨ë“œ ê²Œì„");
 
 	return;
 }
