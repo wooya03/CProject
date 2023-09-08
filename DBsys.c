@@ -15,59 +15,59 @@ int DBsys(int a) {
 	char buffer[200] = { 0, };	// buffer1
 	char buffer2[200] = { 0, }; // buffer 2
 
-	// MySQL ÃÊ±âÈ­ : mysql_init(±¸Á¶Ã¼ÀÇ ÁÖ¼Ò => &mysql)
+	// MySQL ì´ˆê¸°í™” : mysql_init(êµ¬ì¡°ì²´ì˜ ì£¼ì†Œ => &mysql)
 	mysql_init(&mysql);
 
-	// MySQL ¿¬°á : mysql_real_connect(8°³ ±¸Á¶Ã¼ÀÇ ÁÖ¼Ò, È£½ºÆ® ÀÌ¸§,)
+	// MySQL ì—°ê²° : mysql_real_connect(8ê°œ êµ¬ì¡°ì²´ì˜ ì£¼ì†Œ, í˜¸ìŠ¤íŠ¸ ì´ë¦„,)
 	connection = mysql_real_connect(&mysql, HOST, USER, PASS, NAME, PORT, NULL, 0);
 
-	// MySQL ¼­¹ö¿¡ ¿¬°áÇÏ´Â °úÁ¤¿¡¼­ ¹ß»ıÇÏ´Â ¿À·ù¸¦ Ã³¸®
+	// MySQL ì„œë²„ì— ì—°ê²°í•˜ëŠ” ê³¼ì •ì—ì„œ ë°œìƒí•˜ëŠ” ì˜¤ë¥˜ë¥¼ ì²˜ë¦¬
 	if (connection == NULL) {
-		fprintf(stderr, "¿¡·¯ : %s\n", mysql_error(&mysql));
+		fprintf(stderr, "ì—ëŸ¬ : %s\n", mysql_error(&mysql));
 	}
 
-	if (a == 0) { // ·Î±×ÀÎ
+	if (a == 0) { // ë¡œê·¸ì¸
 		system("cls");
-		printf("=========·Î±×ÀÎ=========\n");
-		printf("¾ÆÀÌµğ¸¦ ÀÔ·Â : ");
-		gets(id); // ¾ÆÀÌµğ ÀÔ·Â
-		if (id[0] == 0) { // ¾ÆÀÌµğ¿¡ °ø¹éÀ» ÀÔ·ÂÇÒ °æ¿ì
-			printf("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+		printf("=========ë¡œê·¸ì¸=========\n");
+		printf("ì•„ì´ë””ë¥¼ ì…ë ¥ : ");
+		gets(id); // ì•„ì´ë”” ì…ë ¥
+		if (id[0] == 0) { // ì•„ì´ë””ì— ê³µë°±ì„ ì…ë ¥í•  ê²½ìš°
+			printf("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 			system("pause");
 			return;
 		}
-		printf("ÆĞ½º¿öµå ÀÔ·Â : ");
-		gets(passwd); // ºñ¹Ğ¹øÈ£ ÀÔ·Â
-		if (passwd[0] == 0) { // ºñ¹Ğ¹øÈ£¿¡ °ø¹éÀ» ÀÔ·ÂÇÒ °æ¿ì
-			printf("ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+		printf("íŒ¨ìŠ¤ì›Œë“œ ì…ë ¥ : ");
+		gets(passwd); // ë¹„ë°€ë²ˆí˜¸ ì…ë ¥
+		if (passwd[0] == 0) { // ë¹„ë°€ë²ˆí˜¸ì— ê³µë°±ì„ ì…ë ¥í•  ê²½ìš°
+			printf("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 			system("pause");
 			return;
 		}
 
 
 		sprintf(buffer, "SELECT * FROM user WHERE id='%s' AND passwd='%s'", id, passwd); 
-		// user Å×ÀÌºí¿¡¼­ where Á¶°Ç¿¡ ¸Â´Â ¸ğµç Ä®·³À» Ãâ·Â
+		// user í…Œì´ë¸”ì—ì„œ where ì¡°ê±´ì— ë§ëŠ” ëª¨ë“  ì¹¼ëŸ¼ì„ ì¶œë ¥
 		mysql_query(connection, buffer); 
-		// mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
-		result = mysql_store_result(connection); //mysql¿¡ ³ª¿Â °á°ú¸¦ ÀúÀåÇÑ´Ù.
+		// mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
+		result = mysql_store_result(connection); //mysqlì— ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
 
 		while ((row = mysql_fetch_row(result)) != NULL) 
-			// result¿¡¼­ ÇÑ Çà(row)¾¿ µ¥ÀÌÅÍ¸¦ °¡Á®¿Í¼­ ¹İº¹ÀûÀ¸·Î Ã³¸®
+			// resultì—ì„œ í•œ í–‰(row)ì”© ë°ì´í„°ë¥¼ ê°€ì ¸ì™€ì„œ ë°˜ë³µì ìœ¼ë¡œ ì²˜ë¦¬
 		{
 			if (strcmp(row[0], id) == 0 && strcmp(row[2], passwd) == 0)
 			{
-				printf("·Î±×ÀÎµÇ¾ú½À´Ï´Ù.\n");
+				printf("ë¡œê·¸ì¸ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 				coin = atoi(row[3]);
-				buffer[0] = 0; // ¹öÆÛ ÃÊ±âÈ­
+				buffer[0] = 0; // ë²„í¼ ì´ˆê¸°í™”
 				sprintf(buffer, "SELECT score FROM ranking WHERE id='%s'", row[0]);
 				mysql_query(connection, buffer); 
-				// mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+				// mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 				mysql_free_result(result); 
-				// result¿¡ ´ëÇÑ ¸Ş¸ğ¸®(memory)¿¡ ÀÖ´Â ³»¿ëÀ» ¸ğµÎ Á¦°ÅÇÑ´Ù.
+				// resultì— ëŒ€í•œ ë©”ëª¨ë¦¬(memory)ì— ìˆëŠ” ë‚´ìš©ì„ ëª¨ë‘ ì œê±°í•œë‹¤.
 				result = mysql_store_result(connection); 
-				//mysql¿¡ ³ª¿Â °á°ú¸¦ ÀúÀåÇÑ´Ù.
+				//mysqlì— ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
 				while ((row2 = mysql_fetch_row(result)) != NULL) 
-				// result¿¡¼­ ÇÑ Çà(row)ÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿Í¼­ ¹İº¹ÀûÀ¸·Î Ã³¸®
+				// resultì—ì„œ í•œ í–‰(row)ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì™€ì„œ ë°˜ë³µì ìœ¼ë¡œ ì²˜ë¦¬
 				{
 					best_score = atoi(row2[0]);
 				}
@@ -75,123 +75,123 @@ int DBsys(int a) {
 				return 1;
 			}
 			else {
-				printf("¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö ¾Ê½À´Ï´Ù.");
+				printf("ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			}
 		}
 		if ((row = mysql_fetch_row(result)) == NULL) {
-			printf("¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+			printf("ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 		}
 	}
 
-	else if (a == 1) { // È¸¿ø°¡ÀÔ
+	else if (a == 1) { // íšŒì›ê°€ì…
 		system("cls");
-		printf("=========È¸¿ø°¡ÀÔ=========\n");
-		printf("¾ÆÀÌµğ¸¦ ÀÔ·Â : ");
-		gets(id); // ¾ÆÀÌµğ ÀÔ·Â
-		if (id[0] == 0) { // ¾ÆÀÌµğ¿¡ °ø¹éÀ» ÀÔ·ÂÇÒ °æ¿ì
-			printf("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+		printf("=========íšŒì›ê°€ì…=========\n");
+		printf("ì•„ì´ë””ë¥¼ ì…ë ¥ : ");
+		gets(id); // ì•„ì´ë”” ì…ë ¥
+		if (id[0] == 0) { // ì•„ì´ë””ì— ê³µë°±ì„ ì…ë ¥í•  ê²½ìš°
+			printf("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 			system("pause");
 			return;
 		}
-		printf("ÆĞ½º¿öµå ÀÔ·Â : ");
-		gets(passwd); // ºñ¹Ğ¹øÈ£ ÀÔ·Â
-		if (passwd[0] == 0) { // ºñ¹Ğ¹øÈ£¿¡ °ø¹éÀ» ÀÔ·ÂÇÒ °æ¿ì
-			printf("ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+		printf("íŒ¨ìŠ¤ì›Œë“œ ì…ë ¥ : ");
+		gets(passwd); // ë¹„ë°€ë²ˆí˜¸ ì…ë ¥
+		if (passwd[0] == 0) { // ë¹„ë°€ë²ˆí˜¸ì— ê³µë°±ì„ ì…ë ¥í•  ê²½ìš°
+			printf("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 			system("pause");
 			return;
 		}
-		printf("´Ğ³×ÀÓ ÀÔ·Â : ");
-		gets(name); // ´Ğ³×ÀÓ ÀÔ·Â 
-		if (name[0] == 0) {// ´Ğ³×ÀÓ¿¡ °ø¹éÀ» ÀÔ·ÂÇÒ °æ¿ì
-			printf("´Ğ³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+		printf("ë‹‰ë„¤ì„ ì…ë ¥ : ");
+		gets(name); // ë‹‰ë„¤ì„ ì…ë ¥ 
+		if (name[0] == 0) {// ë‹‰ë„¤ì„ì— ê³µë°±ì„ ì…ë ¥í•  ê²½ìš°
+			printf("ë‹‰ë„¤ì„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 			system("pause");
 			return;
 		}
 
 		sprintf(buffer, "SELECT * FROM user WHERE id='%s'", id);
-		// user Å×ÀÌºí¿¡¼­ where Á¶°Ç¿¡ ¸Â´Â ¸ğµç Ä®·³À» Ãâ·Â
-		mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
-		result = mysql_store_result(connection); //mysql¿¡ ³ª¿Â °á°ú¸¦ ÀúÀåÇÑ´Ù.
+		// user í…Œì´ë¸”ì—ì„œ where ì¡°ê±´ì— ë§ëŠ” ëª¨ë“  ì¹¼ëŸ¼ì„ ì¶œë ¥
+		mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
+		result = mysql_store_result(connection); //mysqlì— ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
 
 		if ((row = mysql_fetch_row(result)) == NULL) { 
-			buffer[0] = 0; // ¹öÆÛ ÃÊ±âÈ­ 
+			buffer[0] = 0; // ë²„í¼ ì´ˆê¸°í™” 
 			sprintf(buffer, "insert into user(id, name, passwd) values('%s', '%s', '%s')", id, name, passwd);
-			// µ¥ÀÌÅÍ »ğÀÔ
-			mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+			// ë°ì´í„° ì‚½ì…
+			mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 		}
 		else {
-			// row°¡ nullÀÌ ¾Æ´Ò °æ¿ì
-			printf("ÀÌ¹Ì ¾ÆÀÌµğ°¡ Á¸ÀçÇÕ´Ï´Ù.\n");
+			// rowê°€ nullì´ ì•„ë‹ ê²½ìš°
+			printf("ì´ë¯¸ ì•„ì´ë””ê°€ ì¡´ì¬í•©ë‹ˆë‹¤.\n");
 		}
 		system("pause");
 		return 2;
 	}
 
-	else if (a == 2) { // ½ºÄÚ¾î Ãß°¡
+	else if (a == 2) { // ìŠ¤ì½”ì–´ ì¶”ê°€
 
 		sprintf(buffer, "SELECT * FROM ranking WHERE id='%s' ORDER BY 2 desc", id);
-		// ranking Å×ÀÌºí¿¡¼­ where Á¶°Ç¿¡ ¸Â´Â ¸ğµç Ä®·³À» Á¡¼ö ³»¸²Â÷¼øÀ¸·Î Ãâ·Â
-		mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
-		result = mysql_store_result(connection); //mysql¿¡ ³ª¿Â °á°ú¸¦ ÀúÀåÇÑ´Ù.
+		// ranking í…Œì´ë¸”ì—ì„œ where ì¡°ê±´ì— ë§ëŠ” ëª¨ë“  ì¹¼ëŸ¼ì„ ì ìˆ˜ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥
+		mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
+		result = mysql_store_result(connection); //mysqlì— ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
 
-		if ((row = mysql_fetch_row(result)) != NULL) { // result¿¡¼­ ÇÑ Çà(row)ÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿È
+		if ((row = mysql_fetch_row(result)) != NULL) { // resultì—ì„œ í•œ í–‰(row)ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜´
 			if (atoi(row[1]) < best_score) {
-				// row[1](score)ÀÌ best_scoreº¸´Ù ÀÛÀ» °æ¿ì
-				buffer[0] = 0; // ¹öÆÛ ÃÊ±âÈ­
+				// row[1](score)ì´ best_scoreë³´ë‹¤ ì‘ì„ ê²½ìš°
+				buffer[0] = 0; // ë²„í¼ ì´ˆê¸°í™”
 				sprintf(buffer, "UPDATE ranking SET score = %d WHERE id = '%s'", best_score, id);
-				// rankingÀÇ socre¸¦ best_scoreÀÇ °ªÀ¸·Î º¯°æ
-				mysql_free_result(result); //  result¿¡ ´ëÇÑ ¸Ş¸ğ¸®(memory)¿¡ ÀÖ´Â ³»¿ëÀ» ¸ğµÎ Á¦°ÅÇÑ´Ù.
-				mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+				// rankingì˜ socreë¥¼ best_scoreì˜ ê°’ìœ¼ë¡œ ë³€ê²½
+				mysql_free_result(result); //  resultì— ëŒ€í•œ ë©”ëª¨ë¦¬(memory)ì— ìˆëŠ” ë‚´ìš©ì„ ëª¨ë‘ ì œê±°í•œë‹¤.
+				mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 				return;
 			}
 			else {
-				mysql_free_result(result); //  result¿¡ ´ëÇÑ ¸Ş¸ğ¸®(memory)¿¡ ÀÖ´Â ³»¿ëÀ» ¸ğµÎ Á¦°ÅÇÑ´Ù.
+				mysql_free_result(result); //  resultì— ëŒ€í•œ ë©”ëª¨ë¦¬(memory)ì— ìˆëŠ” ë‚´ìš©ì„ ëª¨ë‘ ì œê±°í•œë‹¤.
 				return;
 			}
 			
 		}
 		else {
-			mysql_free_result(result); //  result¿¡ ´ëÇÑ ¸Ş¸ğ¸®(memory)¿¡ ÀÖ´Â ³»¿ëÀ» ¸ğµÎ Á¦°ÅÇÑ´Ù.
-			buffer[0] = 0; // ¹öÆÛ ÃÊ±âÈ­
+			mysql_free_result(result); //  resultì— ëŒ€í•œ ë©”ëª¨ë¦¬(memory)ì— ìˆëŠ” ë‚´ìš©ì„ ëª¨ë‘ ì œê±°í•œë‹¤.
+			buffer[0] = 0; // ë²„í¼ ì´ˆê¸°í™”
 			sprintf(buffer, "insert into ranking values('%s', '%d')", id, best_score);
-			// ·©Å·¿¡ Ä®·³ »ğÀÔ
-			mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+			// ë­í‚¹ì— ì¹¼ëŸ¼ ì‚½ì…
+			mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 			return;
 		}
 	}
-	else if (a == 3) { // ·©Å· È®ÀÎ
+	else if (a == 3) { // ë­í‚¹ í™•ì¸
 		sprintf(buffer, "SELECT u.name, r.score, u.coin FROM ranking r, user u where r.id = u.id ORDER BY 2 desc");
-		// user Å×ÀÌºí°ú ranking Å×ÀÌºíÀÇ Á¶ÀÎÇÏ¿© ³ª¿Â Ä®·³À» Á¡¼öÀÇ ³»¸²Â÷¼øÀ¸·Î Ãâ·Â
-		mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
-		result = mysql_store_result(connection); //mysql¿¡ ³ª¿Â °á°ú¸¦ ÀúÀåÇÑ´Ù.
-		int count = 1, b = 13; // count : ¼ºÀû, b : yÁÂÇ¥
-		while ((row = mysql_fetch_row(result)) != NULL) // result¿¡¼­ ÇÑ Çà(row)¾¿ µ¥ÀÌÅÍ¸¦ °¡Á®¿Í¼­ ¹İº¹ÀûÀ¸·Î Ã³¸®
+		// user í…Œì´ë¸”ê³¼ ranking í…Œì´ë¸”ì˜ ì¡°ì¸í•˜ì—¬ ë‚˜ì˜¨ ì¹¼ëŸ¼ì„ ì ìˆ˜ì˜ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥
+		mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
+		result = mysql_store_result(connection); //mysqlì— ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
+		int count = 1, b = 13; // count : ì„±ì , b : yì¢Œí‘œ
+		while ((row = mysql_fetch_row(result)) != NULL) // resultì—ì„œ í•œ í–‰(row)ì”© ë°ì´í„°ë¥¼ ê°€ì ¸ì™€ì„œ ë°˜ë³µì ìœ¼ë¡œ ì²˜ë¦¬
 		{	
 			gotoxy(6, b);
 			printf("%-5d   %-6s   %-5s    %-5s\n", count, row[0], row[1], row[2]);
 			count++;
 			b++;
 		}
-		return b; // yÁÂÇ¥ ¸®ÅÏ
+		return b; // yì¢Œí‘œ ë¦¬í„´
 	}
 
-	else if (a == 4) { // ÄÚÀÎ Ãß°¡
+	else if (a == 4) { // ì½”ì¸ ì¶”ê°€
 
 		sprintf(buffer, "SELECT * FROM user WHERE id='%s'", id);
-		// user Å×ÀÌºí¿¡¼­ where Á¶°Ç¿¡ ¸Â´Â ¸ğµç Ä®·³À» Ãâ·Â
-		// user Å×ÀÌºí¿¡¼­ where Á¶°Ç¿¡ ¸Â´Â ¸ğµç Ä®·³À» Ãâ·Â
-		mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
-		result = mysql_store_result(connection); //mysql¿¡ ³ª¿Â °á°ú¸¦ ÀúÀåÇÑ´Ù.
+		// user í…Œì´ë¸”ì—ì„œ where ì¡°ê±´ì— ë§ëŠ” ëª¨ë“  ì¹¼ëŸ¼ì„ ì¶œë ¥
+		// user í…Œì´ë¸”ì—ì„œ where ì¡°ê±´ì— ë§ëŠ” ëª¨ë“  ì¹¼ëŸ¼ì„ ì¶œë ¥
+		mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
+		result = mysql_store_result(connection); //mysqlì— ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
 
 
-		if ((row = mysql_fetch_row(result)) != NULL) { // result¿¡¼­ ÇÑ Çà(row)ÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿È
-			buffer[0] = 0; // ¹öÆÛ ÃÊ±âÈ­
-			mysql_free_result(result); //  result¿¡ ´ëÇÑ ¸Ş¸ğ¸®(memory)¿¡ ÀÖ´Â ³»¿ëÀ» ¸ğµÎ Á¦°ÅÇÑ´Ù.
+		if ((row = mysql_fetch_row(result)) != NULL) { // resultì—ì„œ í•œ í–‰(row)ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜´
+			buffer[0] = 0; // ë²„í¼ ì´ˆê¸°í™”
+			mysql_free_result(result); //  resultì— ëŒ€í•œ ë©”ëª¨ë¦¬(memory)ì— ìˆëŠ” ë‚´ìš©ì„ ëª¨ë‘ ì œê±°í•œë‹¤.
 			sprintf(buffer, "UPDATE user SET coin = %d WHERE id = '%s'", coin, id);
-			// ÄÚÀÎ°ªÀ» ¾÷µ¥ÀÌÆ®
-			mysql_query(connection, buffer); // mysqlÄÜ¼ÖÃ¢¿¡ ¾²´Â ¸í·É¾î¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+			// ì½”ì¸ê°’ì„ ì—…ë°ì´íŠ¸
+			mysql_query(connection, buffer); // mysqlì½˜ì†”ì°½ì— ì“°ëŠ” ëª…ë ¹ì–´ë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 			return;
 		}
 	}
-	mysql_close(connection); // MySQL Á¾·á 
+	mysql_close(connection); // MySQL ì¢…ë£Œ 
 }
