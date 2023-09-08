@@ -1,25 +1,25 @@
 #include "a.h"
 
-void Interface() { // ¿Œ≈Õ∆‰¿ÃΩ∫∏¶ «‘ºˆ∑Œ ∏∏µÈæÓ « ø‰«— ∞˜ø° ∫“∑Øø»
+void Interface() { // Ïù∏ÌÑ∞ÌéòÏù¥Ïä§Î•º Ìï®ÏàòÎ°ú ÎßåÎì§Ïñ¥ ÌïÑÏöîÌïú Í≥≥Ïóê Î∂àÎü¨Ïò¥
 	system("cls");
-	int a = 8; // X¡¬«•
-	int b = 12; // Y¡¬«•
-	gotoxy(a + 2, b + 9); printf("        °·°·"); Sleep(50);
-	gotoxy(a + 2, b + 8); printf("        °·°·"); Sleep(50);
-	gotoxy(a + 2, b + 7); printf("        °·°·"); Sleep(50);
-	gotoxy(a + 2, b + 6); printf("        °·°·"); Sleep(50);
-	gotoxy(a + 2, b + 5); printf("        °·°·"); Sleep(50);
-	gotoxy(a + 2, b + 4); printf("°·      °·°·      °·"); Sleep(50);
-	gotoxy(a + 2, b + 3); printf(" °·°·   °·°·   °·°·"); Sleep(50);
-	gotoxy(a + 2, b + 2); printf("   °·°·°·°·°·°·°·"); Sleep(50);
-	gotoxy(a + 2, b + 1); printf("     °·°·°·°·°·"); Sleep(50);
-	gotoxy(a + 2, b); printf("       °·°·°·"); Sleep(50);
-	gotoxy(a + 2, b - 1); printf("         °·"); Sleep(50);
+	int a = 8; // XÏ¢åÌëú
+	int b = 12; // YÏ¢åÌëú
+	gotoxy(a + 2, b + 9); printf("        ‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 8); printf("        ‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 7); printf("        ‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 6); printf("        ‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 5); printf("        ‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 4); printf("‚ñ†      ‚ñ†‚ñ†      ‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 3); printf(" ‚ñ†‚ñ†   ‚ñ†‚ñ†   ‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 2); printf("   ‚ñ†‚ñ†‚ñ†‚ñ†‚ñ†‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b + 1); printf("     ‚ñ†‚ñ†‚ñ†‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b); printf("       ‚ñ†‚ñ†‚ñ†"); Sleep(50);
+	gotoxy(a + 2, b - 1); printf("         ‚ñ†"); Sleep(50);
 	b = 2;
 	gotoxy(a, b + 6);
 	printf("========================\n"); Sleep(50);
 	gotoxy(a, b + 5);
-	printf("     π´ «— ¿« ∞Ë ¥‹\n");
+	printf("     Î¨¥ Ìïú Ïùò Í≥Ñ Îã®\n");
 	gotoxy(a, b + 4);
 	printf("========================\n"); Sleep(50);
 	gotoxy(a, b + 3);
@@ -27,7 +27,7 @@ void Interface() { // ¿Œ≈Õ∆‰¿ÃΩ∫∏¶ «‘ºˆ∑Œ ∏∏µÈæÓ « ø‰«— ∞˜ø° ∫“∑Øø»
 	gotoxy(a, b + 2);
 	printf("========================\n"); Sleep(50);
 	gotoxy(a, b + 1);
-	printf("   °„  °„  °„  °„  °„\n"); Sleep(50);
+	printf("   ‚ñ≤  ‚ñ≤  ‚ñ≤  ‚ñ≤  ‚ñ≤\n"); Sleep(50);
 	gotoxy(a, b);
 	printf("========================\n"); Sleep(50);
 }
