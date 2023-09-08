@@ -1,15 +1,15 @@
 #include "a.h"
 
-// ÁÂÇ¥ ÀÌµ¿ ÇÔ¼ö
+// ì¢Œí‘œ ì´ë™ í•¨ìˆ˜
 void gotoxy(int x, int y) {
 	COORD pos = { x,y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
-void cursor() { // ÄÜ¼Ö Ä¿¼­ ¼û±â±â
+void cursor() { // ì½˜ì†” ì»¤ì„œ ìˆ¨ê¸°ê¸°
 	CONSOLE_CURSOR_INFO cursorInfo = { 0, };
-	cursorInfo.bVisible = 0; // Ä¿¼­¸¦ º¸ÀÏÁö ¸»Áö °áÁ¤(0ÀÌ¸é ¾Èº¸ÀÓ, 0Á¦¿Ü ¼ýÀÚ °ªÀÌ¸é º¸ÀÓ)
-	cursorInfo.dwSize = 1; // Ä¿¼­ÀÇ Å©±â¸¦ °áÁ¤ (1~100 »çÀÌ¸¸ °¡´É)
+	cursorInfo.bVisible = 0; // ì»¤ì„œë¥¼ ë³´ì¼ì§€ ë§ì§€ ê²°ì •(0ì´ë©´ ì•ˆë³´ìž„, 0ì œì™¸ ìˆ«ìž ê°’ì´ë©´ ë³´ìž„)
+	cursorInfo.dwSize = 1; // ì»¤ì„œì˜ í¬ê¸°ë¥¼ ê²°ì • (1~100 ì‚¬ì´ë§Œ ê°€ëŠ¥)
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
 
