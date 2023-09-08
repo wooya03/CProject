@@ -1,16 +1,16 @@
 #include "a.h"
 
-int current_score = 0;//ÇöÀç Á¡¼ö
-extern best_score; //ÃÖ°í Á¡¼ö
+int current_score = 0;//í˜„ì¬ ì ìˆ˜
+extern best_score; //ìµœê³  ì ìˆ˜
 extern int coin;
 
-// Á¡¼ö¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö
+// ì ìˆ˜ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 int Score() {
 	gotoxy(1, 0);
-	printf("SCORE : %d", current_score); // ÇöÀç Á¡¼ö
+	printf("SCORE : %d", current_score); // í˜„ì¬ ì ìˆ˜
 	gotoxy(13, 0);
-	printf("BEST SCORE : %d", best_score); // ÃÖ°í Á¡¼ö
+	printf("BEST SCORE : %d", best_score); // ìµœê³  ì ìˆ˜
 	gotoxy(29, 0);
-	printf("COIN : %d", coin); // È¹µæ ÄÚÀÎ
+	printf("COIN : %d", coin); // íšë“ ì½”ì¸
 	return 0;
 }
