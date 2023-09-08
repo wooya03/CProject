@@ -1,23 +1,23 @@
 #include "a.h"
 
 extern int check_x, check_y;
-int cx, cy, check_c1 = 0, check_c2 = 0; // µ¿Àü °ü·Ã º¯¼öµé
+int cx, cy, check_c1 = 0, check_c2 = 0; // ë™ì „ ê´€ë ¨ ë³€ìˆ˜ë“¤
 
-//µ¿Àü Ãâ·ÂÇÏ´Â ÇÔ¼ö
+//ë™ì „ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 int CoinScore() {
-	int num; // ·£´ý º¯¼ö  
-	cx = check_x; //µ¿Àü °¹¼ö¸¦ ¼¼±â À§ÇØ¼­ °è¼Ó º¯ÇÏ´Â °ªÀÎ cx¿Í cyÀÇ °ª ´ë½Å Á¶°ÇÀ» ºñ±³ ÇÒ º¯¼ö¸¦ ¼±¾ðÇÔ
-	cy = check_y - 1; //µ¿Àü °¹¼ö¸¦ ¼¼±â À§ÇØ¼­ °è¼Ó º¯ÇÏ´Â °ªÀÎ cx¿Í cyÀÇ °ª ´ë½Å Á¶°ÇÀ» ºñ±³ ÇÒ º¯¼ö¸¦ ¼±¾ðÇÔ
-	num = rand() % 1000; // ·£´ý °ª ÀÔ·Â
-	if (num % 3 == 0) { // 3ÀÇ ¹è¼öÀÏ °æ¿ì
+	int num; // ëžœë¤ ë³€ìˆ˜  
+	cx = check_x; //ë™ì „ ê°¯ìˆ˜ë¥¼ ì„¸ê¸° ìœ„í•´ì„œ ê³„ì† ë³€í•˜ëŠ” ê°’ì¸ cxì™€ cyì˜ ê°’ ëŒ€ì‹  ì¡°ê±´ì„ ë¹„êµ í•  ë³€ìˆ˜ë¥¼ ì„ ì–¸í•¨
+	cy = check_y - 1; //ë™ì „ ê°¯ìˆ˜ë¥¼ ì„¸ê¸° ìœ„í•´ì„œ ê³„ì† ë³€í•˜ëŠ” ê°’ì¸ cxì™€ cyì˜ ê°’ ëŒ€ì‹  ì¡°ê±´ì„ ë¹„êµ í•  ë³€ìˆ˜ë¥¼ ì„ ì–¸í•¨
+	num = rand() % 1000; // ëžœë¤ ê°’ ìž…ë ¥
+	if (num % 3 == 0) { // 3ì˜ ë°°ìˆ˜ì¼ ê²½ìš°
 		gotoxy(cx, cy);
-		printf("¡Û"); // À§Ä¡¿¡ µ¿Àü Ãâ·Â
-		check_c2 = check_c1;  // ÀÌÀüÀÇ µ¿Àü °¹¼ö
-		check_c1++;//¸¸¾à µ¿ÀüÀÌ Ãâ·ÂµÇ¸é µ¿Àü°¹¼öµµ ¿Ã·ÁÁÖ¾î¾ßÇÔ
+		printf("â—‹"); // ìœ„ì¹˜ì— ë™ì „ ì¶œë ¥
+		check_c2 = check_c1;  // ì´ì „ì˜ ë™ì „ ê°¯ìˆ˜
+		check_c1++;//ë§Œì•½ ë™ì „ì´ ì¶œë ¥ë˜ë©´ ë™ì „ê°¯ìˆ˜ë„ ì˜¬ë ¤ì£¼ì–´ì•¼í•¨
 	}
 	else {
-		check_c2 = check_c1; // ÀÌÀüÀÇ µ¿Àü °¹¼ö
-		check_c1--;//ÀÌ °ªÀ» ÁÙ¿©ÁÖÁö ¾ÊÀ¸¸é °è¼Ó µ¿Àü Á¡¼ö°¡ ´Ã¾î³ª±â ¶§¹®¿¡ ÁÙ¿©ÁÜ
+		check_c2 = check_c1; // ì´ì „ì˜ ë™ì „ ê°¯ìˆ˜
+		check_c1--;//ì´ ê°’ì„ ì¤„ì—¬ì£¼ì§€ ì•Šìœ¼ë©´ ê³„ì† ë™ì „ ì ìˆ˜ê°€ ëŠ˜ì–´ë‚˜ê¸° ë•Œë¬¸ì— ì¤„ì—¬ì¤Œ
 	}
 	return 0;
 }
