@@ -8,7 +8,7 @@ void Tutorial() {
 	gotoxy(a, b);
 	printf("========================\n");
 	gotoxy(a, b + 1);
-	printf("   ¡ã  ¡ã  ¡ã  ¡ã  ¡ã\n");
+	printf("   â–²  â–²  â–²  â–²  â–²\n");
 	gotoxy(a, b + 2);
 	printf("========================\n");
 	gotoxy(a, b + 3);
@@ -16,27 +16,27 @@ void Tutorial() {
 	gotoxy(a, b + 4);
 	printf("========================\n");
 	gotoxy(a, b + 5);
-	printf("     ¹« ÇÑ ÀÇ °è ´Ü\n");
+	printf("     ë¬´ í•œ ì˜ ê³„ ë‹¨\n");
 	gotoxy(a, b + 6);
 	printf("========================\n");
 
 	gotoxy(a + 6, 11);
-	printf("[ ¹æÇâÅ° ]\n"); Sleep(50);
+	printf("[ ë°©í–¥í‚¤ ]\n"); Sleep(50);
 	gotoxy(a+4, 13); 
-	printf("¿À¸¥ÂÊ : ¡æ key"); Sleep(50);
+	printf("ì˜¤ë¥¸ìª½ : â†’ key"); Sleep(50);
 	gotoxy(a + 5, 15);
-	printf("¿ŞÂÊ : ¡ç key\n"); Sleep(50);
+	printf("ì™¼ìª½ : â† key\n"); Sleep(50);
 	gotoxy(a + 5, 17);
-	printf("À§ÂÊ : ¡è key\n"); Sleep(50);
+	printf("ìœ„ìª½ : â†‘ key\n"); Sleep(50);
 	 
 	gotoxy(a + 4, 19);
-	printf("[ °ÔÀÓ ¼³¸í ]"); Sleep(50);
+	printf("[ ê²Œì„ ì„¤ëª… ]"); Sleep(50);
 	gotoxy(3, 21);
-	printf("¹æÇâÅ°·Î °è´ÜÀ» ¿À¸£´Â °ÔÀÓÀÔ´Ï´Ù."); Sleep(50);
+	printf("ë°©í–¥í‚¤ë¡œ ê³„ë‹¨ì„ ì˜¤ë¥´ëŠ” ê²Œì„ì…ë‹ˆë‹¤."); Sleep(50);
 	gotoxy(0, 22);
-	printf("ÀÔ·Â ½Ã°£ ÃÊ°ú³ª °è´Ü¿¡¼­ ¶³¾îÁö¸é Å»¶ô!"); Sleep(50);
+	printf("ì…ë ¥ ì‹œê°„ ì´ˆê³¼ë‚˜ ê³„ë‹¨ì—ì„œ ë–¨ì–´ì§€ë©´ íƒˆë½!"); Sleep(50);
 	gotoxy(9, 23);
-	printf("ÃÖ°í±â·Ï¿¡ µµÀüÇÏ¼¼¿ä!\n\n"); Sleep(50);
+	printf("ìµœê³ ê¸°ë¡ì— ë„ì „í•˜ì„¸ìš”!\n\n"); Sleep(50);
 	system("pause");
 }
 
