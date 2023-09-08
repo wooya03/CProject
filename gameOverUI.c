@@ -1,10 +1,10 @@
 #include "a.h"
-extern current_score; // ÇöÀç Á¡¼ö
-extern best_score; // ÃÖ°í Á¡¼ö
+extern current_score; // í˜„ìž¬ ì ìˆ˜
+extern best_score; // ìµœê³  ì ìˆ˜
 
 void gameOverUI(void){
 	system("cls");
-	if (current_score > best_score) { // ÇöÀç Á¡¼ö°¡ ÃÖ°í±â·Ïº¸´Ù Å©¸é ÃÖ°í ±â·Ï °»½Å
+	if (current_score > best_score) { // í˜„ìž¬ ì ìˆ˜ê°€ ìµœê³ ê¸°ë¡ë³´ë‹¤ í¬ë©´ ìµœê³  ê¸°ë¡ ê°±ì‹ 
 		best_score = current_score;
 	}
 	gotoxy(12, 1);
@@ -28,11 +28,11 @@ void gameOverUI(void){
 	gotoxy(12, 11);
 	printf(" #   #  ### # # \n");
 	gotoxy(15, 15);
-	printf("SCORE : %d", current_score);//ÇöÀçÁ¡¼ö Ãâ·Â
+	printf("SCORE : %d", current_score);//í˜„ìž¬ì ìˆ˜ ì¶œë ¥
 	gotoxy(13, 17);
-	printf("BEST SCORE : %d\n", best_score);//ÃÖ°í Á¡¼ö Ãâ·Â
+	printf("BEST SCORE : %d\n", best_score);//ìµœê³  ì ìˆ˜ ì¶œë ¥
 	if (current_score >= best_score) {
 		gotoxy(11, 19);
 		printf("RECORD BREAKING!!!\n\n");
-	}//Á¡¼ö °»½ÅµÇ¾úÀ»¶§ Ãâ·ÂÇÏ´Â ¾È³» ¸Þ¼¼Áö
+	}//ì ìˆ˜ ê°±ì‹ ë˜ì—ˆì„ë•Œ ì¶œë ¥í•˜ëŠ” ì•ˆë‚´ ë©”ì„¸ì§€
 }
