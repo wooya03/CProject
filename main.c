@@ -1,36 +1,36 @@
 #include "a.h"
 
-extern int px, py; // ÇÃ·¹ÀÌ¾î À§Ä¡
-extern int current_score;//ÇöÀç Á¡¼ö
-extern int best_score;//ÃÖ°í Á¡¼ö
-extern int coin;//µ¿Àü °¹¼ö
-extern int sx, sy; // °è´ÜÀÇ À§Ä¡
-extern int check_x, check_y; // ºñ±³¸¦ À§ÇÑ º¯¼ö
-extern int check_c1, check_c2; // µ¿Àü ºñ±³ º¯¼ö
+extern int px, py; // í”Œë ˆì´ì–´ ìœ„ì¹˜
+extern int current_score;//í˜„ì¬ ì ìˆ˜
+extern int best_score;//ìµœê³  ì ìˆ˜
+extern int coin;//ë™ì „ ê°¯ìˆ˜
+extern int sx, sy; // ê³„ë‹¨ì˜ ìœ„ì¹˜
+extern int check_x, check_y; // ë¹„êµë¥¼ ìœ„í•œ ë³€ìˆ˜
+extern int check_c1, check_c2; // ë™ì „ ë¹„êµ ë³€ìˆ˜
 
 int main(void) {
 	system("mode con cols=40 lines=30");
-	cursor(); // ÄÜ¼Ö Ä¿¼­ ¼û±â±â
-	int Choice = 0; // À¯Àú Choice
+	cursor(); // ì½˜ì†” ì»¤ì„œ ìˆ¨ê¸°ê¸°
+	int Choice = 0; // ìœ ì € Choice
 	LoginScreen();
 	while (1) {
-		PlaySound(TEXT("ami.wav"), NULL, SND_ASYNC | SND_LOOP); // ½ÃÀÛÀ½¾ÇÀ» ¹«ÇÑ¹İº¹À¸·Î Àç»ı½ÃÅ²´Ù.
-		px = 10; py = 25; // ÇÃ·¹ÀÌ¾î º¯¼ö ÃÊ±âÈ­
-		sx = 10; sy = 24; // °è´Ü º¯¼ö ÃÊ±âÈ­
-		current_score = 0; // ÇöÀç Á¡¼ö º¯¼ö ÃÊ±âÈ­
-		Choice = main_screen(); // Choice¿¡ main_screen();ÀÇ °ª ´ëÀÔ
-		if (Choice == 0) { // Choice°¡ 0ÀÌ¸é °ÔÀÓ ½ÃÀÛ
+		PlaySound(TEXT("ami.wav"), NULL, SND_ASYNC | SND_LOOP); // ì‹œì‘ìŒì•…ì„ ë¬´í•œë°˜ë³µìœ¼ë¡œ ì¬ìƒì‹œí‚¨ë‹¤.
+		px = 10; py = 25; // í”Œë ˆì´ì–´ ë³€ìˆ˜ ì´ˆê¸°í™”
+		sx = 10; sy = 24; // ê³„ë‹¨ ë³€ìˆ˜ ì´ˆê¸°í™”
+		current_score = 0; // í˜„ì¬ ì ìˆ˜ ë³€ìˆ˜ ì´ˆê¸°í™”
+		Choice = main_screen(); // Choiceì— main_screen();ì˜ ê°’ ëŒ€ì…
+		if (Choice == 0) { // Choiceê°€ 0ì´ë©´ ê²Œì„ ì‹œì‘
 			GameLoop();
 		}
-		else if (Choice == 1) { // Choice°¡ 1ÀÌ¸é Æ©Åä¸®¾ó
+		else if (Choice == 1) { // Choiceê°€ 1ì´ë©´ íŠœí† ë¦¬ì–¼
 			system("cls");
 			Tutorial();
 		}
-		else if (Choice == 2) { // Choice°¡ 2¸é ·©Å·º¸±â
+		else if (Choice == 2) { // Choiceê°€ 2ë©´ ë­í‚¹ë³´ê¸°
 			system("cls");
 			Ranking();
 		}
-		else if (Choice == 3) { // Choice°¡ 4ÀÌ¸é °ÔÀÓ Á¾·á
+		else if (Choice == 3) { // Choiceê°€ 4ì´ë©´ ê²Œì„ ì¢…ë£Œ
 			system("cls");
 			break;
 		}
