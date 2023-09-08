@@ -1,42 +1,42 @@
 #include "a.h"
 
-extern int py; // playerÀÇ yÁÂÇ¥
-extern int current_score; //ÇöÀç Á¡¼ö
-extern int check_c1, check_c2; // µ¿Àü °ü·Ã º¯¼öµé
-extern coin; // µ¿Àü °³¼ö
+extern int py; // playerì˜ yì¢Œí‘œ
+extern int current_score; //í˜„ì¬ ì ìˆ˜
+extern int check_c1, check_c2; // ë™ì „ ê´€ë ¨ ë³€ìˆ˜ë“¤
+extern coin; // ë™ì „ ê°œìˆ˜
 int GameLoop() {
 
-	int start_time = 0, end_time, gap = 0;//Å¸ÀÌ¸Ó ±â´ÉÀ» ¾²±âÀ§ÇØ ÇÊ¿äÇÑ º¯¼ö
+	int start_time = 0, end_time, gap = 0;//íƒ€ì´ë¨¸ ê¸°ëŠ¥ì„ ì“°ê¸°ìœ„í•´ í•„ìš”í•œ ë³€ìˆ˜
 	system("cls");
-	Score(); //°ÔÀÓ È­¸é ¸¸µé±â
-	DrawPlayer(); //½ÃÀÛ ÇÃ·¹ÀÌ¾î Âï±â
-	// ½ÃÀÛ °è´Ü
+	Score(); //ê²Œì„ í™”ë©´ ë§Œë“¤ê¸°
+	DrawPlayer(); //ì‹œì‘ í”Œë ˆì´ì–´ ì°ê¸°
+	// ì‹œì‘ ê³„ë‹¨
 	gotoxy(10, 26);
-	printf("¡ë");
-	//°ÔÀÓ ÇÃ·¹ÀÌ È­¸é
+	printf("ã€“");
+	//ê²Œì„ í”Œë ˆì´ í™”ë©´
 	while (1) {
-		int temp = py; // py¸¦ temp º¯¼ö¿¡ ÀúÀå
-		Stair();//°è´Ü ¸ÕÀú Âï±â
-		start_time = clock(); // ½ÃÀÛ ½Ã°£
-		CoinScore();//µ¿Àü Ãâ·ÂÇÏ±â
-		MovePlayer();//ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÌ±â
-		end_time = clock();  // Á¾·á ½Ã°£
-		// ÀÏÁ¤ ½Ã°£µ¿¾È Å° ÀÔ·ÂÇÏÁö ¾ÊÀ¸¸é °ÔÀÓÁ¾·á
-		gap = (int)(end_time - start_time); // Á¾·á½Ã°£ - ½ÃÀÛ½Ã°£
+		int temp = py; // pyë¥¼ temp ë³€ìˆ˜ì— ì €ì¥
+		Stair();//ê³„ë‹¨ ë¨¼ì € ì°ê¸°
+		start_time = clock(); // ì‹œì‘ ì‹œê°„
+		CoinScore();//ë™ì „ ì¶œë ¥í•˜ê¸°
+		MovePlayer();//í”Œë ˆì´ì–´ ì›€ì§ì´ê¸°
+		end_time = clock();  // ì¢…ë£Œ ì‹œê°„
+		// ì¼ì • ì‹œê°„ë™ì•ˆ í‚¤ ì…ë ¥í•˜ì§€ ì•Šìœ¼ë©´ ê²Œì„ì¢…ë£Œ
+		gap = (int)(end_time - start_time); // ì¢…ë£Œì‹œê°„ - ì‹œì‘ì‹œê°„
 		if (GameOver(gap)) {
 			system("pause");
 			break;
 		}
 
-		if (py < temp) { //ÇöÀç Á¡¼ö ¿Ã·ÁÁÖ±â
+		if (py < temp) { //í˜„ì¬ ì ìˆ˜ ì˜¬ë ¤ì£¼ê¸°
 			current_score++;
 		}
 
-		ScreenReset();//È­¸é ÃÊ±âÈ­
-		if (check_c1 > check_c2) { //µ¿Àü °¹¼ö ¿Ã¸®±â
+		ScreenReset();//í™”ë©´ ì´ˆê¸°í™”
+		if (check_c1 > check_c2) { //ë™ì „ ê°¯ìˆ˜ ì˜¬ë¦¬ê¸°
 			coin++;
 		}
-		Score(); // Á¡¼ö Ãâ·Â
+		Score(); // ì ìˆ˜ ì¶œë ¥
 
 
 	}
