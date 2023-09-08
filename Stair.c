@@ -1,24 +1,24 @@
 #include "a.h"
-int sx = 10, sy = 24; // °è´ÜÀÇ À§Ä¡
-int check_x, check_y; // ºñ±³¸¦ À§ÇÑ º¯¼ö
+int sx = 10, sy = 24; // ê³„ë‹¨ì˜ ìœ„ì¹˜
+int check_x, check_y; // ë¹„êµë¥¼ ìœ„í•œ ë³€ìˆ˜
 
-// °è´Ü »ý¼ºÇÏ´Â ÇÔ¼ö
+// ê³„ë‹¨ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
 int Stair() {
-	int num = 0; // ·£´ý °ª ´ëÀÔÀ» À§ÇÑ º¯¼ö
-	check_x = sx; // °è´ÜÀÇ x À§Ä¡¸¦ check_x¿¡ ´ëÀÔ
-	check_y = sy; // °è´ÜÀÇ y À§Ä¡¸¦ check_y¿¡ ´ëÀÔ
-	gotoxy(sx, sy); // °è´Ü ÀÌµ¿
-	printf("¡ë");//°è´Ü Ãâ·Â
-	num = rand() % 3;//0,1, 2Áß ÇÑ°³ÀÇ º¯¼ö ¹Þ±â
-	if (num == 0 && sx >= 3) { //¿ÞÂÊÀ¸·Î °è´Ü ÀÌµ¿
+	int num = 0; // ëžœë¤ ê°’ ëŒ€ìž…ì„ ìœ„í•œ ë³€ìˆ˜
+	check_x = sx; // ê³„ë‹¨ì˜ x ìœ„ì¹˜ë¥¼ check_xì— ëŒ€ìž…
+	check_y = sy; // ê³„ë‹¨ì˜ y ìœ„ì¹˜ë¥¼ check_yì— ëŒ€ìž…
+	gotoxy(sx, sy); // ê³„ë‹¨ ì´ë™
+	printf("ã€“");//ê³„ë‹¨ ì¶œë ¥
+	num = rand() % 3;//0,1, 2ì¤‘ í•œê°œì˜ ë³€ìˆ˜ ë°›ê¸°
+	if (num == 0 && sx >= 3) { //ì™¼ìª½ìœ¼ë¡œ ê³„ë‹¨ ì´ë™
 		sx -= 2;
 		sy--;
 	}
-	else if (num == 1 && sx <= 28) { //¿À¸¥ÂÊÀ¸·Î °è´Ü ÀÌµ¿
+	else if (num == 1 && sx <= 28) { //ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê³„ë‹¨ ì´ë™
 		sx += 2;
 		sy--;
 	}
-	else { //À§ÂÊÀ¸·Î °è´Ü ÀÌµ¿
+	else { //ìœ„ìª½ìœ¼ë¡œ ê³„ë‹¨ ì´ë™
 		sy -= 2;
 	}
 	return 0;
