@@ -1,40 +1,40 @@
 #pragma once
 
-// Áßº¹ ¼±¾ğ ¹æÁö
-#ifndef __STDIO_H__ // __STDIO_H__ ¶ó´Â ¸ÅÅ©·Î°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é
-#define __STDIO_H__ //__STDIO_H__ ¸¦ Á¤ÀÇÇÑ´Ù
-#include <stdio.h> // stdio.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù
-#endif // ifndef Á¾·á
+// ì¤‘ë³µ ì„ ì–¸ ë°©ì§€
+#ifndef __STDIO_H__ // __STDIO_H__ ë¼ëŠ” ë§¤í¬ë¡œê°€ ì •ì˜ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´
+#define __STDIO_H__ //__STDIO_H__ ë¥¼ ì •ì˜í•œë‹¤
+#include <stdio.h> // stdio.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤
+#endif // ifndef ì¢…ë£Œ
 
-#ifndef __WINDOWS_H__ // __WINDOWS_H__ ¶ó´Â ¸ÅÅ©·Î°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é
-#define __WINDOWS_H__ // __WINDOWS_H__ ¸¦ Á¤ÀÇÇÑ´Ù
-#include<windows.h> // windows.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù
-#endif // ifndef Á¾·á
+#ifndef __WINDOWS_H__ // __WINDOWS_H__ ë¼ëŠ” ë§¤í¬ë¡œê°€ ì •ì˜ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´
+#define __WINDOWS_H__ // __WINDOWS_H__ ë¥¼ ì •ì˜í•œë‹¤
+#include<windows.h> // windows.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤
+#endif // ifndef ì¢…ë£Œ
 
-#ifndef __CONIO_H__ // __CONIO_H__ ¶ó´Â ¸ÅÅ©·Î°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é
-#define __CONIO_H__ // __CONIO_H__ ¸¦ Á¤ÀÇÇÑ´Ù
+#ifndef __CONIO_H__ // __CONIO_H__ ë¼ëŠ” ë§¤í¬ë¡œê°€ ì •ì˜ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´
+#define __CONIO_H__ // __CONIO_H__ ë¥¼ ì •ì˜í•œë‹¤
 #include<conio.h> // conio.h
-#endif // ifndef Á¾·á
+#endif // ifndef ì¢…ë£Œ
 
-#ifndef __TIME_H__ // __TIME_H__ ¶ó´Â ¸ÅÅ©·Î°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é
-#define __TIME_H__ // __TIME_H__ ¸¦ Á¤ÀÇÇÑ´Ù
-#include<time.h> // time.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù
-#endif // ifndef Á¾·á
+#ifndef __TIME_H__ // __TIME_H__ ë¼ëŠ” ë§¤í¬ë¡œê°€ ì •ì˜ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´
+#define __TIME_H__ // __TIME_H__ ë¥¼ ì •ì˜í•œë‹¤
+#include<time.h> // time.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤
+#endif // ifndef ì¢…ë£Œ
 
-#ifndef __STDBOOL_H__ // __STDBOOL_H__ ¶ó´Â ¸ÅÅ©·Î°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é
-#define __STDBOOL_H__ // __STDBOOL_H__ ¸¦ Á¤ÀÇÇÑ´Ù
-#include <stdbool.h> // stdbool.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù
-#endif // ifndef Á¾·á
+#ifndef __STDBOOL_H__ // __STDBOOL_H__ ë¼ëŠ” ë§¤í¬ë¡œê°€ ì •ì˜ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´
+#define __STDBOOL_H__ // __STDBOOL_H__ ë¥¼ ì •ì˜í•œë‹¤
+#include <stdbool.h> // stdbool.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤
+#endif // ifndef ì¢…ë£Œ
 
-#ifndef __STDLIB_H__ // __STDLIB_H__ ¶ó´Â ¸ÅÅ©·Î°¡ Á¤ÀÇµÇ¾îÀÖÁö ¾ÊÀ¸¸é
-#define __STDLIB_H__ // __STDLIB_H__ ¸¦ Á¤ÀÇÇÑ´Ù
-#include <stdlib.h> // stdlib.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù
-#endif // ifndef Á¾·á
+#ifndef __STDLIB_H__ // __STDLIB_H__ ë¼ëŠ” ë§¤í¬ë¡œê°€ ì •ì˜ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´
+#define __STDLIB_H__ // __STDLIB_H__ ë¥¼ ì •ì˜í•œë‹¤
+#include <stdlib.h> // stdlib.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤
+#endif // ifndef ì¢…ë£Œ
 
 #define _CRT_SECURE_NO_WARNNINGS
 
-#include <mysql.h>		// mysql.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù.
-#include <mmsystem.h>   // mmsystem.h Çì´õÆÄÀÏÀ» ¼±¾ğÇÑ´Ù. (³ë·¡)
+#include <mysql.h>		// mysql.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤.
+#include <mmsystem.h>   // mmsystem.h í—¤ë”íŒŒì¼ì„ ì„ ì–¸í•œë‹¤. (ë…¸ë˜)
 #pragma comment(lib, "winmm.lib"); 
 
 #define HOST "127.0.0.1" // mysql HOST
@@ -44,10 +44,10 @@
 #define PORT 3306		 // mysql PORT
 
 #define ESC 27 // ESC
-#define LEFT 75 // ¿ŞÂÊ ¡ç
-#define RIGHT 77 // ¿À¸¥ÂÊ ¡æ
-#define DOWN 80 // ¾Æ·¡ÂÊ ¡é
-#define UP  72 // À§ÂÊ ¡è
+#define LEFT 75 // ì™¼ìª½ â†
+#define RIGHT 77 // ì˜¤ë¥¸ìª½ â†’
+#define DOWN 80 // ì•„ë˜ìª½ â†“
+#define UP  72 // ìœ„ìª½ â†‘
 #define ENTER 13 // ENTER
 
 int main_screen();
